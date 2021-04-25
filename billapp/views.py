@@ -12,13 +12,14 @@ class PlaceListView(ListView):
     template_name = 'core_section/home.html'
 
 class PlaceView(View):
+    model=Place
     def get(self,request,*args,**kwargs):
-        return render(request,"core_section/home.html",{})
+        return render(request,"core_section/reciept.html",{})
         
     def post(self,request,*args,**kwargs):
 
         
-        places_id=request.POST.get("Place.id")
+        places_id=request.POST.get("place.id")
         kms=Place.objects.get(id=places_id)
         #object creation 
         obj=Place(kms.places,kms.distance)
@@ -26,14 +27,12 @@ class PlaceView(View):
         context={'place_name':obj.place_name(),
         'amount':obj.amount(),
         'total_distance':obj.distance()
-
         }  
-
         reciept=Place.objects.create(place_name=place_name,amount=amount,total_distance=total_distance)
-        pre_paid.save()     
-        return render(request,"core_section/home.html",context)
+        reiept.save()     
+        return render(request,"core_section/reciept.html",context)
 
 
         
-        template_name = "core_section/home.html"
+        template_name = "core_section/reciept.html"
 
