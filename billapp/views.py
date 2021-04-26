@@ -5,23 +5,32 @@ from django.views import View
 from .models import Place
 from django.shortcuts import render,get_object_or_404
 from .pre_paid import PrePaid
-#class PlaceListView(ListView):
-    #model = Place
-    #template_name = 'core_section/home.html'
-
 class PlaceView(View):
     model=Place
     def get(self,request,*args,**kwargs):
-        try:
-            #obj=Place.objects.get("pla
+        place = Place.objects.get("place.id")
+        print (place.id)
+
+        #obj=get_object_or_404(Place,id=id)
+
+        #try:
+            #obj=Place.objects.get
+            #obj=Place.objects.get("")
             #place_list=Place.objects.all()
+        #except Place.DoesNotExist:
+
+            #raise Http404
+        """try:
+            #id = self.kwargs.get("id")
+            places_id=request.GET.get(place.id)
+            obj=Place.objects.get(id=id)
         except Place.DoesNotExist:
-
             raise Http404
-
-        context={'place_list':place_list,
+        context={
+            "object":obj
         }
-
+"""
+        
         return render(request,"core_section/home.html",context)
         
     def post(self,request,*args,**kwargs):
