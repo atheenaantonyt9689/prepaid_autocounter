@@ -1,4 +1,4 @@
-class Place:
+class PrePaid:
     min_distance=1.5
     min_charge=20
 
@@ -17,10 +17,10 @@ class Place:
         else:
              return Place.min_charge """  
     def distance(self):
-        total_distance=self.distance/Place.min_distance
+        total_distance=self.distance/PrePaid.min_distance
         return total_distance
     def amount(self):
-        return self.distance()*Place.min_charge
+        return self.distance()*PrePaid.min_charge
    
 
 

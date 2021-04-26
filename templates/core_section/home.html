@@ -13,14 +13,23 @@
       <div class="card-body">
         <form action="" method="post" class="form-signin">
           {% csrf_token %}
-          <label for="places">Choose Place:</label>
+          <!--label for="places">Choose Place:</label>
           
           <select id="{{place.id}}" name="places">
             {% for place in object_list %}
             <option value="{{place.id}}">{{place}}</option>
             {% endfor %}         
           
-          </select>     
+          </select-->   
+          
+          <label for="places">Choose Place:</label>
+          
+          <select id="{{place.id}}" name="place">
+            {% for place in place_list %}
+            <option value="{{place.id}}">{{place.id}}-{{place}}</option>
+            {% endfor %}         
+          
+          </select> 
          
           <button class="btn btn-success btn-lg " type="submit">Generate Receipt </button>
 
