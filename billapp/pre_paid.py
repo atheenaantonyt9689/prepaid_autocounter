@@ -20,7 +20,13 @@ class PrePaid:
         total_distance=self.distance/PrePaid.min_distance
         return total_distance
     def amount(self):
-        return self.distance()*PrePaid.min_charge
+        if float(self.distance)>PrePaid.min_distance:
+
+            total_distance=self.distance/PrePaid.min_distance
+            total_price=total_distance*PrePaid.min_charge                      
+        return total_price
+
+        #return self.distance()*PrePaid.min_charge
    
 
 
